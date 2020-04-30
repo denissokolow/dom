@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
  <head>
   <title>Работа с изображениями</title><meta charset="utf-8">
@@ -7,26 +8,20 @@
 
  </head>
  <body>
-    <div id="Loader" title="Load  image"><h2>Load image</h2></div>
+    <div id="Loader" title="Load image"><h2>Load image</h2></div>
     <div id="Inserter" title="Insert image"><h2>Insert image</h2></div>
     <script>{
+      let img;
       function cacheIm(url){
         const im = document.createElement('img');
         im.src = url;
         return im;
       }
-   document.querySelector('#Loader').addEventListener('click', () => cacheIm('https://i.yapx.ru/HOOrDb.jpg')); //сохраняем im
+   document.querySelector('#Loader').addEventListener('click', () => img = cacheIm('https://i.yapx.ru/HPnAVb.jpg')); //"загружаем" изображение в im ??
    document.querySelector('#Loader').addEventListener('click', () => document.querySelector('#Inserter').dispatchEvent(new CustomEvent('save')));//inserter получает событие
    document.querySelector('#Loader').addEventListener('click', () => document.getElementById("Loader").remove());//удаляем кнопку Load
-   document.querySelector('#Inserter').addEventListener('save', () => document.querySelector('#Inserter').addEventListener('click', () => document.body.appendChild('im')));//запуск слушателя клик по событию сейв и вывод изображения
+   document.querySelector('#Inserter').addEventListener('save', () => document.querySelector('#Inserter').addEventListener('click', () =>       document.body.appendChild(img)));//запуск слушателя click по событию save и вывод изображения
 
-
-
-      //https://i.yapx.ru/HOOrDb.jpg
-      //document.body.appendChild(cacheIm(' '));
-      //document.querySelector('#reader').addEventListener('note', e => e.target.textContent += e.target.title);
-      //document.querySelector('#writer').addEventListener('click',() => document.querySelector('#reader').dispatchEvent(new CustomEvent('note')));  		           document.querySelector('#writer').addEventListener('noteback', e => e.target.textContent += e.target.title);
-      //document.querySelector('#reader').addEventListener('note',() => document.querySelector('#writer').dispatchEvent(new CustomEvent('noteback')));
     }</script>
   </body>
 </html>
