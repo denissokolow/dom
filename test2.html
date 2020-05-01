@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Замена фона</title><meta charset="utf-8">
+   <style>#Block {width: 150px; height:50px; line-height:5px; text-align: center; border: 2px solid;}</style>
+ </head>
+ <body>
+    <div id="Block" title="Наведи курсор"><h4>Наведи курсор</h4></div>
+    <input type="color" id="Palitra" value="#ffffff">
+    <script>{    
+    var x = document.querySelector('#Block');
+    var y = document.querySelector('#Palitra');
+    y.addEventListener("input", () => x.style.backgroundColor = y.value);
+
+    x.onmouseover = () => {
+      function rgb(z){
+        var b = parseInt(z.replace(/[^\d]/g, ''));
+        var newb = String(b);
+        var newr = 255 - +newb.slice(0, 3);
+        var newg = 255 - +newb.slice(3, 6);
+        var newb = 255 - +newb.slice(6, 9);
+        return "rgb(" + newr + "," + newg + "," + newb + ")";
+          }
+      x.style.backgroundColor = rgb(getComputedStyle(document.querySelector('#Block')).backgroundColor);
+      }
+    }</script>
+  </body>
+</html>
