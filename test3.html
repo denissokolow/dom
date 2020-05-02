@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Fetch</title><meta charset="utf-8">
+ </head>
+ <body>
+    <script>{
+            const getJson = async() => {
+            const URI = 'http://kodaktor.ru/j/users/';
+            const x = await fetch(URI).then(x => x.json());
+            var ul = document.createElement("ul");
+            document.body.appendChild(ul);
+            x.users.forEach(function spisok(currentValue){
+              var li = document.createElement("li");
+              var text = document.createTextNode(JSON.stringify(currentValue.login));
+              ul.appendChild(li);
+              li.appendChild(text);
+            });
+          }
+           getJson();
+    }</script>
+  </body>
+</html>
