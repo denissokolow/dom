@@ -1,0 +1,32 @@
+<html>
+ <head>
+  <title>Templates</title><meta charset="utf-8">
+ </head>
+ <template id="t"><style>:host{zoom: 123%; display:inline; border:solid 1px silver; border-radius: 5px; padding: 5px; margin:5px;
+            width:90%; float:left;
+            }</style>⇑<span><slot name="val1"></slot></span></template>
+ <template id="t2"><style></style>⇓<span><slot name="valdown"></slot></span></template>
+ <counter-er1><span slot="val1">3</span></counter-er1>
+
+ <body>
+    <script>{
+      class CounterUp extends HTMLElement {
+        constructor() {
+          super();
+          const shadow = this.attachShadow({mode: 'open'});
+          const content = document.importNode(document.querySelector('#t').content, true);
+          this.val = this.querySelector('[slot=val1]').textContent;
+          shadow.appendChild(content);
+          this.addEventListener('click', ()=> {
+            this.val++;
+            this.querySelector('[slot=val1]').textContent = this.val;
+          })
+        }
+      }
+
+
+      customElements.define('counter-er1', CounterUp);
+
+    }</script>
+  </body>
+</html>
