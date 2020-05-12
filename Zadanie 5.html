@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Fetch</title><meta charset="utf-8">
+ </head>
+ <body>
+    <script>{
+            const getJson = async() => {
+            const URI = 'https://kodaktor.ru/api/usermails';
+            const x = await fetch(URI).then(x => x.json());
+            const sort = x.sort((a, b) => a.length - b.length);//скорee всего добавить тут .map
+            console.log(sort);
+            };
+           getJson();
+    }</script>
+  </body>
+</html>
