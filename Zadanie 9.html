@@ -1,32 +1,61 @@
 <html>
- <head>
-  <title>Templates</title><meta charset="utf-8">
- </head>
- <template id="t"><style>:host{zoom: 123%; display:inline; border:solid 1px silver; border-radius: 5px; padding: 5px; margin:5px;
-            width:90%; float:left;
-            }</style>⇑<span><slot name="val1"></slot></span></template>
- <template id="t2"><style></style>⇓<span><slot name="valdown"></slot></span></template>
- <counter-er1><span slot="val1">3</span></counter-er1>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Likes</title>
+  </head>
+   <h2>ЗАДАНИЕ 10. СОЗДАНИЕ НАТИВНОГО ВЕБ-КОМПОНЕНТА</h2>
+   <h4 id="author" title="GossJS">Денис Соколов (с)2020</h4>
 
- <body>
-    <script>{
-      class CounterUp extends HTMLElement {
-        constructor() {
-          super();
-          const shadow = this.attachShadow({mode: 'open'});
-          const content = document.importNode(document.querySelector('#t').content, true);
-          this.val = this.querySelector('[slot=val1]').textContent;
-          shadow.appendChild(content);
-          this.addEventListener('click', ()=> {
-            this.val++;
-            this.querySelector('[slot=val1]').textContent = this.val;
-          })
-        }
+<template id="t">
+    <style>
+            :host{zoom: 150%; border:solid 2px black; border-radius: 5px; padding: 5px; margin:5px;
+            width:80%; float:left;
+            }
+            input {
+                cursor: pointer;
+            }
+        </style>
+    <span class="title"><slot name="title"></slot></span>
+    <span class="votes"><slot name="votes"></slot></span>
+    <br>
+    <input type = "button" class = "up" value = "+"></input>
+    <input type = "button" class = "down" value = "-"></input>
+    </template>
+<script>
+    class Counter extends HTMLElement{
+            constructor(){
+                super();
+                this.shadow = this.attachShadow({mode: 'open'});
+                this.content = document.importNode(document.querySelector('#t').content, true);
+                this.votes = this.querySelector('[slot=votes]').textContent;
+                this.shadow.appendChild(this.content);
+                this.shadow.querySelector('.up').addEventListener('click', () => {
+                                                              this.querySelector('[slot=votes]').textContent = this.querySelector('[slot=votes]').textContent + '☆';
+                                                              })
+                this.shadow.querySelector('.down').addEventListener('click', () => {
+                                                              this.querySelector('[slot=votes]').textContent = this.querySelector('[slot=votes]').textContent.slice(0, -1);
+                                                              })
+                }
+               }
+
+    (async e =>{
+      const x = await fetch('https://kodaktor.ru/j/react5b_6cbf2').then(x=>x.json());
+      x.forEach(x => {
+            $('body').append(`
+			                        <count-er>
+			                        <span slot="title"> ${x.title}</span>
+                              <span slot="votes"> ${likes(x.votes)}</span><br>
+                              </count-er>`);
+            });
+      })();
+
+    function likes(x) {
+      simbol = '';
+      for (var i=0; i<x; i++) simbol = simbol + '☆';
+      return simbol;
       }
 
+    customElements.define('count-er', Counter);
 
-      customElements.define('counter-er1', CounterUp);
-
-    }</script>
-  </body>
+    </script>
 </html>
