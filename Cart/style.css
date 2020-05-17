@@ -1,0 +1,17 @@
+.basket  {
+          border: 3px black;
+          height: 120px;
+          width: 50%;
+          background: gray}
+.wrapper {
+          border: 3px black;
+          height: 120px;
+          width: 50%;
+          background: blue}
+.product {
+          border: 3px black;
+          height: 90%;
+          width: 30%;
+          background: red;
+          margin: 1%;
+          float:left}
