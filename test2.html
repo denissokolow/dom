@@ -16,7 +16,7 @@
         var b = parseInt(z.replace(/[^\d]/g, ''));
         var newb = String(b);
         var newr = 255 - +newb.slice(0, 3);
-        var newg = 255 - +newb.slice(3, 6);
+        var newg = 255 - +newb.slice(3, 6)
         var newb = 255 - +newb.slice(6, 9);
         return "rgb(" + newr + "," + newg + "," + newb + ")";
           }

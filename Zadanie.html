@@ -1,0 +1,33 @@
+<html>
+ <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Корзина</title><meta charset="utf-8">
+   <style>.basket {border: 3px black; height: 120px; width: 50%; background: gray}</style>
+   <style>.wrapper {border: 3px black; height: 120px; width: 50%; background: blue}</style>
+   <style>.item {border: 3px black; height: 90%; width: 30%; background: red; margin: 1%; float:left}</style>
+ </head>
+ <body>
+    <div class="wrapper"></div>
+    <div class="basket"></div>
+    <script>{
+
+      (async e =>{
+       $.get('https://kodaktor.ru/cart_data.json', (data) => {
+                                  Object.keys(data).forEach((key, i) => {
+                                      $('.wrapper').append(`<div class="item" id="ite${i}">${data[key]}</div>`);
+                                                           })
+                                    }
+
+            )
+       const ist = document.querySelector('div[id^="ite"]'), pri = document.querySelector('.basket');
+       console.log(ist);
+       ist.setAttribute('draggable', true);
+       ist.addEventListener('dragstart', e => e.dataTransfer.setData('text/plain', e.target.textContent));
+       pri.addEventListener('dragover', e => e.preventDefault());
+       pri.addEventListener('drop', e => e.target.textContent += e.dataTransfer.getData('text/plain'));
+      })();
+
+
+    }</script>
+ </body>
+</html>
