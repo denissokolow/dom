@@ -33,6 +33,14 @@ function dropDrop(id){
                         <div class = "cover-txt"> ${price} </div>
                        </div>`);
                      }
+function delProd(){
+
+}
+
+function clearBasket(){
+
+}
+]
 
 //${data[key]}  ${key}
  });//get
