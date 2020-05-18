@@ -28,6 +28,15 @@
           border: 2px solid white;
           border-radius: 5px;
           background: #FED13D;}
+.product-in-basket {
+          width: 33%;
+          height: 75%;
+          text-align: center;
+          padding: 1px;
+          margin: 2px;
+          border: 2px solid white;
+          border-radius: 5px;
+          background: #FED13D;}
 .cover img {
           max-width: 90%;
           max-height: 50%;

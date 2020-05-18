@@ -3,9 +3,10 @@ $(() =>{
  $.get('https://kodaktor.ru/cart_data.json', (data) => {
         Object.keys(data).forEach((key, i) => {
                         $('.wrapper').append(`
-                          <div class="product cover" id="ite${i}" draggable="true" >
-                           <img src="${key}.png" draggable="false">
-                           <div class = "cover-txt"> Товар ${key} <br> Цена ${data[key]} </div>
+                          <div class="product cover" id="ite${i}"  draggable="true" >
+                          <img src="${key}.png" draggable="false">
+                          <div class = "cover-txt" id = "name"> Товар ${key} </div>
+                          <div class = "cover-txt" id = "price"> Цена ${data[key]} </div>
                           </div>`);
 
        });
@@ -20,11 +21,17 @@ $('.basket').on('drop', (event) => {
              dropDrop(id);
              });
 function dropDrop(id){
-         const i = id[3];
-         $('.basket').append(`
-            <div class="product" id="ite${i}" draggable="true"></div>`);
-
-};
+                      const i = id[3];
+                      const name = $(`#${id} #name`).text();
+                      const price = $(`#${id} #price`).text();
+                      const foto = $('#' + id + ' img').attr('src');
+                      $('.basket').append(`
+                       <div class="product-in-basket cover" id="ite${i}" draggable="true">
+                        <img src= "${foto}" draggable="false">
+                        <div class = "cover-txt"> ${name} </div>
+                        <div class = "cover-txt"> ${price} </div>
+                       </div>`);
+                     }
 
 //${data[key]}  ${key}
  });//get
