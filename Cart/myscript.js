@@ -39,7 +39,7 @@ function delProd(){
 
 
 $('.clear-basket').on('click', function(){
-                         $('.basket .content').empty()});
+                        document.querySelectorAll('.product-in-basket').forEach(e => e.parentNode.removeChild(e));});
 
 
 //${data[key]}  ${key}
