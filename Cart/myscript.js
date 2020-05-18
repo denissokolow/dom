@@ -37,10 +37,10 @@ function delProd(){
 
 }
 
-function clearBasket(){
 
-}
-]
+$('.clear-basket').on('click', function(){
+                         $('.basket .content').empty()});
+
 
 //${data[key]}  ${key}
  });//get
