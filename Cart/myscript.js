@@ -21,6 +21,7 @@ $('.basket').on('drop', (event) => {
              dropDrop(id);
              });
 function dropDrop(id){
+                      const count = 0;
                       const i = id[3];
                       const name = $(`#${id} #name`).text();
                       const price = $(`#${id} #price`).text();
