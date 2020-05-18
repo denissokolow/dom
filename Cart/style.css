@@ -1,17 +1,86 @@
+.all-of-page {
+          width: 100%;
+          position: absolute;
+          left: 25%;}
 .basket  {
-          border: 3px black;
-          height: 120px;
+          position: relative;
+          border: 2px solid black;
+          border-radius: 3px;
+          height: 200px;
           width: 50%;
-          background: gray}
+          display: inline-flex;
+          margin: 1px auto;
+          background: #4A2495}
 .wrapper {
-          border: 3px black;
+          border: 2px solid black;
+          border-radius: 3px;
           height: 120px;
           width: 50%;
-          background: blue}
+          display: inline-flex;
+          margin: 1px auto;
+          background: #4A2495;}
 .product {
-          border: 3px black;
+          width: 33%;
           height: 90%;
-          width: 30%;
-          background: red;
-          margin: 1%;
-          float:left}
+          text-align: center;
+          padding: 1px;
+          margin: 2px;
+          border: 2px solid white;
+          border-radius: 5px;
+          background: #FED13D;}
+.cover img {
+          max-width: 90%;
+          max-height: 50%;
+          object-fit: cover;}
+.cover-txt {
+          font-family: consolas;
+          font-size : 14px;
+          font-weight : bold;}
+.basket-control-panel{
+          display: inline-flex;
+          position: absolute;
+          top: 80%;
+          left: 1%;
+          width: 95%;
+          height: 30px;
+          padding: 1px;
+          margin: 2px;
+          border: 2px solid white;
+          border-radius: 5px;
+          background: #FED13D;
+          font-family: consolas;
+          font-size : 12px;
+          font-weight : bold;}
+.clear-basket{
+          width: 20%;
+          height: 20px;
+          line-height:20px;
+          text-align: center;
+          padding: 1px;
+          margin: 2px;
+          border: 2px solid #4A2495;
+          border-radius: 5px;
+          background: #FED13D;
+          font-family: consolas;
+          font-size : 12px;
+          font-weight : bold;}
+.inbox-basket{
+          display: inline-flex;
+          width: auto;
+          height: 20px;
+          line-height:20px;
+          text-align: left;
+          padding: 1px;
+          margin: 2px;
+          border-radius: 5px;
+          background: #FED13D;}
+.budget-basket{
+          display: inline-flex;
+          width: auto;
+          height: 20px;
+          line-height:20px;
+          text-align: left;
+          padding: 1px;
+          margin: 2px;
+          border-radius: 5px;
+          background: #FED13D;}
