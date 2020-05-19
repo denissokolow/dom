@@ -25,6 +25,7 @@ $(() =>{
               });
 
   $('.basket').on('dragover', e => e.preventDefault());
+//событие на дроп
   $('.basket').on('drop', (event) => {
              const id = event.dataTransfer.getData('text/plain');
              const price = $(`#${id} #price`).text();
@@ -43,7 +44,7 @@ $(() =>{
                       const foto = $('#' + id + ' img').attr('src');
                       console.log(`при дропе ${haveMoney} , ${budget}`);
                       $('.basket').append(`
-                       <div class="product-in-basket cover" id="ite${i}" draggable="true">
+                       <div class="product-in-basket cover" id="ite${i}" draggable="false">
                         <div class="del-prod"> X </div>
                         <img src= "${foto}" draggable="false">
                         <div class = "cover-txt"> ${name} </div>
