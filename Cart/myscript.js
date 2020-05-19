@@ -3,6 +3,7 @@ var count = 0;
 var budget = 0;
 var haveMoney = 0;
 var cost = 0;
+var price = 0;
 $(() =>{
  $.get('https://kodaktor.ru/cart_data.json', (data) => {
         Object.keys(data).forEach((key, i) => {
@@ -13,11 +14,11 @@ $(() =>{
                           <div class = "cover-txt" id = "price"> Цена ${data[key]} </div>
                           </div>`);
                         $('inbox-basket').text(`${count}`);
-                        // добавить на кейдаун получение значения бюджета
-                        budget = $('#budg-start').attr('value');
+                        budget = $('#budg-start').val();
                         haveMoney = budget;
+                        console.log(`при загрузке ${haveMoney} , ${budget}`);
 
-       });
+});
 
   $('.product').on('dragstart', (event) => {
                 console.log(event.target.id);
@@ -31,46 +32,53 @@ $(() =>{
              cost = parseInt(price.match(/\d+/));
              dropDrop(id, cost);
              });
-
+//добавляем товар в корзину
   function dropDrop(id){
                   if (haveMoney >= cost){
                       count+=1;
                       const i = id[3];
                       const name = $(`#${id} #name`).text();
-                      const price = $(`#${id} #price`).text();
-                      const foto = $('#' + id + ' img').attr('src');
+                      price = $(`#${id} #price`).text();
                       haveMoney = haveMoney - parseInt(price.match(/\d+/));
-                      console.log(haveMoney, budget);
+                      price = parseInt(price.match(/\d+/));
+                      const foto = $('#' + id + ' img').attr('src');
+                      console.log(`при дропе ${haveMoney} , ${budget}`);
                       $('.basket').append(`
                        <div class="product-in-basket cover" id="ite${i}" draggable="true">
                         <div class="del-prod"> X </div>
                         <img src= "${foto}" draggable="false">
                         <div class = "cover-txt"> ${name} </div>
-                        <div class = "cover-txt"> ${price} </div>
+                        <div class = "cover-txt"> Цена ${price} </div>
                        </div>`);
                        $('#count-in-basket').text(`${count}`);
                        $('#budg-start').val(haveMoney);
 
-                     }}
+                      }}
 
 //очистка корзины
   $('.clear-basket').on('click', function(){
                       document.querySelectorAll('.product-in-basket').forEach(e => e.parentNode.removeChild(e));
                       count = 0;
                       $('#count-in-basket').text(`${count}`);
-                      $('#budg-start').val(500);
-                      haveMoney = 500;
+                      $('#budg-start').val(budget);
+                      haveMoney = $('#budg-start').val();
                        });
 
 //удаление товара из корзины
   $('body').on('click', '.del-prod', function(){
+                       price = $(this).closest('[id ^= ite]').text();
+                       haveMoney = haveMoney + parseInt(price.match(/\d+/));
                        $(this).closest('.product-in-basket').remove();
                        count-=1;
                        $('#count-in-basket').text(`${count}`);
-                       // добавить функцю увеличения haveMoney
-                       $('#budg-start').val(500);
-                                       });
+                       $('#budg-start').val(haveMoney);
+                      });
 
+//изменение бюджета
+$('#budg-start').change(function() {
+                      haveMoney = $('#budg-start').val();
+                      budget = $('#budg-start').val();
+                    });
 
  });//get
 });//async
