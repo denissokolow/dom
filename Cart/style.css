@@ -4,39 +4,41 @@
           left: 25%;}
 .basket  {
           position: relative;
+          text-align: center;
           border: 2px solid black;
           border-radius: 3px;
           height: 200px;
           width: 50%;
           display: inline-flex;
           margin: 1px auto;
-          background: #4A2495}
+          background: #7F8BEC}
 .wrapper {
+          display: inline-flex;
+          text-align: center;
           border: 2px solid black;
           border-radius: 3px;
           height: 120px;
           width: 50%;
-          display: inline-flex;
           margin: 1px auto;
-          background: #4A2495;}
+          background: #7F8BEC}
 .product {
-          width: 33%;
+          width: 15%;
           height: 90%;
           text-align: center;
           padding: 1px;
           margin: 2px;
           border: 2px solid white;
           border-radius: 5px;
-          background: #FED13D;}
+          background: #ECDE7F}
 .product-in-basket {
-          width: 33%;
-          height: 75%;
+          width: 15%;
+          height: 50%;
           text-align: center;
           padding: 1px;
           margin: 2px;
           border: 2px solid white;
           border-radius: 5px;
-          background: #FED13D;}
+          background: #ECDE7F;}
 .cover img {
           max-width: 90%;
           max-height: 50%;
@@ -52,23 +54,24 @@
           width: 99%;
           height: 30px;
           padding: 1px;
-          margin: 2px;
-          border: 2px solid white;
+          margin: 1px;
+          border: 1px solid white;
           border-radius: 5px;
-          background: #FED13D;
+          background: #ECDE7F;
           font-family: consolas;
           font-size : 12px;
           font-weight : bold;}
 .clear-basket{
+          cursor: pointer;
           width: 32%;
           height: 20px;
           line-height:20px;
           text-align: center;
           padding: 1px;
           margin: 2px;
-          border: 2px solid #4A2495;
+          border: 2px solid #7F8BEC;
           border-radius: 5px;
-          background: #FED13D;
+          background: #ECDE7F;
           font-family: consolas;
           font-size : 12px;
           font-weight : bold;}
@@ -79,9 +82,9 @@
           text-align: center;
           padding: 1px;
           margin: 2px;
-          border: 2px solid #4A2495;
+          border: 2px solid #7F8BEC;
           border-radius: 5px;
-          background: #FED13D;}
+          background: #ECDE7F;}
 .budget-basket{
           width: 32%;
           height: 20px;
@@ -89,33 +92,30 @@
           text-align: center;
           padding: 1px;
           margin: 2px;
-          border: 2px solid #4A2495;
+          border: 2px solid #7F8BEC;
           border-radius: 5px;
-          background: #FED13D;}
+          background: #ECDE7F;}
 
 input[type='text'] {
           font-size: 12px;
           text-align: center;
           font-family: consolas;
           font-weight : bold;
-          background: #FED13D;
+          background: #ECDE7F;
           margin: auto;
-          border: 1px solid #4A2495;
+          border: 1px solid #7F8BEC;
           border-radius: 5px;
         }
 
 .del-prod{
-        position: absolute;
+        cursor: pointer;
+        display: block;
+        float:right;
         background: white;
-        margin: 0, 0, 0, 50%;
-        padding: 3px;
-        width: auto;
-        height: auto;
+        padding: 1px;
         font-family: consolas;
         font-size : 12px;
         font-weight : bold;
-        border: 2px solid #4A2495;
-        border-radius: 5px;
-        text-align: center;
-
-}
+        border: 2px solid #7F8BEC;
+        border-radius: 1px;
+      }

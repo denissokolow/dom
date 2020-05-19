@@ -10,15 +10,14 @@ $(() =>{
                         $('.wrapper').append(`
                           <div class="product cover" id="ite${i}"  draggable="true" >
                           <img src="${key}.png" draggable="false">
-                          <div class = "cover-txt" id = "name"> Товар ${key} </div>
-                          <div class = "cover-txt" id = "price"> Цена ${data[key]} </div>
+                          <div class = "cover-txt" id = "name">  ${key} </div>
+                          <div class = "cover-txt" id = "price"> ${data[key]}$</div>
                           </div>`);
                         $('inbox-basket').text(`${count}`);
                         budget = $('#budg-start').val();
                         haveMoney = budget;
                         console.log(`при загрузке ${haveMoney} , ${budget}`);
-
-});
+                        });
 
   $('.product').on('dragstart', (event) => {
                 console.log(event.target.id);
@@ -30,7 +29,7 @@ $(() =>{
              const id = event.dataTransfer.getData('text/plain');
              const price = $(`#${id} #price`).text();
              cost = parseInt(price.match(/\d+/));
-             dropDrop(id, cost);
+             dropDrop(id);
              });
 //добавляем товар в корзину
   function dropDrop(id){
@@ -48,12 +47,16 @@ $(() =>{
                         <div class="del-prod"> X </div>
                         <img src= "${foto}" draggable="false">
                         <div class = "cover-txt"> ${name} </div>
-                        <div class = "cover-txt"> Цена ${price} </div>
+                        <div class = "cover-txt"> ${price} $ </div>
                        </div>`);
                        $('#count-in-basket').text(`${count}`);
                        $('#budg-start').val(haveMoney);
-
-                      }}
+                      }
+                 else{
+                      $('.budget-basket').css({'background-color' : '#FF0000'});
+                      setTimeout(() => {$('.budget-basket').css({'background-color' : '#ECDE7F'});}, 2000);
+                     }
+                      }
 
 //очистка корзины
   $('.clear-basket').on('click', function(){
@@ -62,7 +65,7 @@ $(() =>{
                       $('#count-in-basket').text(`${count}`);
                       $('#budg-start').val(budget);
                       haveMoney = $('#budg-start').val();
-                       });
+                      });
 
 //удаление товара из корзины
   $('body').on('click', '.del-prod', function(){
@@ -75,10 +78,10 @@ $(() =>{
                       });
 
 //изменение бюджета
-$('#budg-start').change(function() {
+ $('#budg-start').change(function() {
                       haveMoney = $('#budg-start').val();
                       budget = $('#budg-start').val();
-                    });
+                      });
 
  });//get
 });//async
