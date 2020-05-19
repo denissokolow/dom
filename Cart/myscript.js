@@ -18,6 +18,7 @@ $(() =>{
                         haveMoney = budget;
 
        });
+
   $('.product').on('dragstart', (event) => {
                 console.log(event.target.id);
                 event.dataTransfer.setData('text/plain', event.target.id);
@@ -30,6 +31,7 @@ $(() =>{
              cost = parseInt(price.match(/\d+/));
              dropDrop(id, cost);
              });
+
   function dropDrop(id){
                   if (haveMoney >= cost){
                       count+=1;
@@ -51,7 +53,7 @@ $(() =>{
 
                      }}
 
-
+//очистка корзины
   $('.clear-basket').on('click', function(){
                       document.querySelectorAll('.product-in-basket').forEach(e => e.parentNode.removeChild(e));
                       count = 0;
@@ -60,6 +62,7 @@ $(() =>{
                       haveMoney = 500;
                        });
 
+//удаление товара из корзины
   $('body').on('click', '.del-prod', function(){
                        $(this).closest('.product-in-basket').remove();
                        count-=1;
@@ -69,7 +72,5 @@ $(() =>{
                                        });
 
 
-
-//${data[key]}  ${key}
  });//get
 });//async
