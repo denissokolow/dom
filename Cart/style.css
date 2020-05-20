@@ -1,20 +1,19 @@
-.all-of-page {
-          width: 100%;
-          position: absolute;
-          left: 25%;}
 .basket  {
-          position: relative;
-          text-align: center;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items:center;
           border: 2px solid black;
           border-radius: 3px;
           height: 200px;
           width: 50%;
-          display: inline-flex;
           margin: 1px auto;
           background: #7F8BEC}
 .wrapper {
-          display: inline-flex;
-          text-align: center;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items:center;
           border: 2px solid black;
           border-radius: 3px;
           height: 120px;
@@ -48,16 +47,17 @@
           font-size : 14px;
           font-weight : bold;}
 .basket-control-panel{
-          display: inline-flex;
-          position: absolute;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
           top: 80%;
-          width: 99%;
+          width: 50%;
           height: 30px;
           padding: 1px;
-          margin: 1px;
-          border: 1px solid white;
+          margin: 1px auto;
+          border: 2px solid black;
           border-radius: 5px;
-          background: #ECDE7F;
+          background: #7F8BEC;
           font-family: consolas;
           font-size : 12px;
           font-weight : bold;}
@@ -69,7 +69,7 @@
           text-align: center;
           padding: 1px;
           margin: 2px;
-          border: 2px solid #7F8BEC;
+          border: 2px solid white;
           border-radius: 5px;
           background: #ECDE7F;
           font-family: consolas;
@@ -82,7 +82,7 @@
           text-align: center;
           padding: 1px;
           margin: 2px;
-          border: 2px solid #7F8BEC;
+          border: 2px solid white;
           border-radius: 5px;
           background: #ECDE7F;}
 .budget-basket{
@@ -92,10 +92,9 @@
           text-align: center;
           padding: 1px;
           margin: 2px;
-          border: 2px solid #7F8BEC;
+          border: 2px solid white;
           border-radius: 5px;
           background: #ECDE7F;}
-
 input[type='text'] {
           font-size: 12px;
           text-align: center;
@@ -104,9 +103,7 @@ input[type='text'] {
           background: #ECDE7F;
           margin: auto;
           border: 1px solid #7F8BEC;
-          border-radius: 5px;
-        }
-
+          border-radius: 5px;}
 .del-prod{
         cursor: pointer;
         display: block;
@@ -117,5 +114,4 @@ input[type='text'] {
         font-size : 12px;
         font-weight : bold;
         border: 2px solid #7F8BEC;
-        border-radius: 1px;
-      }
+        border-radius: 1px;}

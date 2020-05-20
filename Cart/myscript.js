@@ -25,8 +25,17 @@ $(() =>{
               });
 
   $('.basket').on('dragover', e => e.preventDefault());
+//событие на dragenter
+  $('.basket').on('dragenter', () =>{
+                  $('.basket').css({'background-color' : '#949EF3'});
+                  });
+//событие на dragleave
+  $('.basket').on('dragleave', () =>{
+                  $('.basket').css({'background-color' : '#7F8BEC'});
+                  });
 //событие на дроп
   $('.basket').on('drop', (event) => {
+             $('.basket').css({'background-color' : '#7F8BEC'});
              const id = event.dataTransfer.getData('text/plain');
              const price = $(`#${id} #price`).text();
              cost = parseInt(price.match(/\d+/));
@@ -54,7 +63,7 @@ $(() =>{
                        $('#budg-start').val(haveMoney);
                       }
                  else{
-                      $('.budget-basket').css({'background-color' : '#FF0000'});
+                      $('.budget-basket').css({'background-color' : '#D92828'});
                       setTimeout(() => {$('.budget-basket').css({'background-color' : '#ECDE7F'});}, 2000);
                      }
                       }
