@@ -20,9 +20,8 @@ $(() =>{
                         });
 
   $('.product').on('dragstart', (event) => {
-                console.log(event.target.id);
-                event.dataTransfer.setData('text/plain', event.target.id);
-              });
+                 event.dataTransfer.setData('text/plain', event.target.id);
+                 });
 
   $('.basket').on('dragover', e => e.preventDefault());
 //событие на dragenter
@@ -51,7 +50,6 @@ $(() =>{
                       haveMoney = haveMoney - parseInt(price.match(/\d+/));
                       price = parseInt(price.match(/\d+/));
                       const foto = $('#' + id + ' img').attr('src');
-                      console.log(`при дропе ${haveMoney} , ${budget}`);
                       $('.basket').append(`
                        <div class="product-in-basket cover" id="ite${i}" draggable="false">
                         <div class="del-prod"> X </div>
