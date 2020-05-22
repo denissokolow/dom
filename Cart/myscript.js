@@ -28,6 +28,9 @@ $(() =>{
   $('.basket').on('dragenter', () =>{
                   $('.basket').css({'background-color' : '#949EF3'});
                  });
+  $('.product').on('dragenter', () =>{
+                                 $('.basket').css({'background-color' : '#949EF3'});
+                                });
 //событие на dragleave
   $('.basket').on('dragleave', () =>{
                   $('.basket').css({'background-color' : '#7F8BEC'});
